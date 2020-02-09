@@ -83,13 +83,11 @@ public class CSVReader {
 		movie.setMovieFacebookLike(Integer.parseInt(fields[27]));
 
 		// director
-		movie.addCrewList(new Crew(fields[1], Integer.valueOf(fields[4])));
-		// actor 1
+		movie.setDirector(new Crew(fields[1], Integer.valueOf(fields[4])));
+		
+		// actor 1 - 3
 		movie.addCrewList(new Crew(fields[10], Integer.valueOf(fields[7])));
-
-		// actor 2
 		movie.addCrewList(new Crew(fields[6], Integer.valueOf(fields[24])));
-		// actor 3
 		movie.addCrewList(new Crew(fields[14], Integer.valueOf(fields[5])));
 
 		if (fields[9] != null) {

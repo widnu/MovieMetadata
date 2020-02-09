@@ -46,20 +46,4 @@ public class App {
 		PrintUtil.printMovieYear(movieList);
 	}
 
-	private static void print() {
-		for (Movie movie : movieList) {
-			System.out.println(movie.getYear());
-//			if (null != movie.getGenres()) {
-//				for (int i = 0; i < movie.getGenres().length; i++) {
-//					System.out.println(movie.getGenres()[i]);
-//				}
-//			}
-//
-//			if (null != movie.getPlotKeywords()) {
-//				for (int i = 0; i < movie.getPlotKeywords().length; i++) {
-//					System.out.println(movie.getPlotKeywords()[i]);
-//				}
-//			}
-		}
-	}
 }

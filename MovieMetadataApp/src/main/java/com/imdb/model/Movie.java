@@ -53,6 +53,8 @@ public class Movie {
 
 	private Double budget;
 
+	private Crew director;
+	
 	private List<Crew> crewList;
 
 	/**
@@ -227,6 +229,14 @@ public class Movie {
 		this.budget = budget;
 	}
 
+	public Crew getDirector() {
+		return director;
+	}
+
+	public void setDirector(Crew director) {
+		this.director = director;
+	}
+	
 	public List<Crew> getCrewList() {
 		return crewList;
 	}
