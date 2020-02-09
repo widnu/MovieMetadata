@@ -1,4 +1,5 @@
 https://www.kaggle.com/carolzhangdc/imdb-5000-movie-dataset
+
 https://www.kaggle.com/carolzhangdc/predict-imdb-score-with-data-mining-algorithms
 
 - color
@@ -32,18 +33,24 @@ movie_facebook_likes
 
 ----------
 https://mkyong.com/maven/how-to-create-a-java-project-with-maven/
+
 mvn archetype:generate -DgroupId=com.imdb -DartifactId=MovieMetadataApp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 
 https://mkyong.com/maven/how-to-create-a-java-project-with-maven/
+
 mvn clean package
+
 java -jar target/MovieMetadataApp-1.0-SNAPSHOT.jar
 
 ----------
 -- javafx - maven --
 https://o7planning.org/en/10623/javafx-tutorial-for-beginners
+
 https://www.vojtechruzicka.com/javafx-getting-started/
 
 -- javafx - scene builder --
 https://o7planning.org/en/10621/install-javafx-scene-builder-into-eclipse
+
 https://www.oracle.com/java/technologies/javafxscenebuilder-1x-archive-downloads.html
+
 https://www.vojtechruzicka.com/javafx-fxml-scene-builder/
