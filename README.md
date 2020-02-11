@@ -55,4 +55,5 @@ https://www.vojtechruzicka.com/javafx-fxml-scene-builder/
 
 # Build JavaFX Native App by Maven
 https://github.com/javafx-maven-plugin/javafx-maven-plugin
+
 mvn jfx:native
