@@ -1,3 +1,4 @@
+# Dataset:
 https://www.kaggle.com/carolzhangdc/imdb-5000-movie-dataset
 
 # Fields:
@@ -51,3 +52,7 @@ https://o7planning.org/en/10621/install-javafx-scene-builder-into-eclipse
 https://www.oracle.com/java/technologies/javafxscenebuilder-1x-archive-downloads.html
 
 https://www.vojtechruzicka.com/javafx-fxml-scene-builder/
+
+# Build JavaFX Native App by Maven
+https://github.com/javafx-maven-plugin/javafx-maven-plugin
+mvn jfx:native
