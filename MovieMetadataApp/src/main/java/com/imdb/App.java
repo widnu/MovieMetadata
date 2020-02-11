@@ -3,9 +3,7 @@ package com.imdb;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
-import com.ibm.comparator.MovieTitleComparator;
 import com.ibm.comparator.MovieYearComparator;
 import com.imdb.enums.SortDirection;
 import com.imdb.model.Movie;
@@ -18,22 +16,24 @@ public class App {
 
 	private static List<Movie> movieList = null;
 
-	public static void main_backup(String[] args) {
+	public static void main(String[] args) {
 		readMovieFile();
 
-//		System.out.println("before sorting: ");
-//		print();
-		
-//		Collections.sort(movieList, new MovieYearComparator());
+		// java collection sorting
+		Collections.sort(movieList, new MovieYearComparator());
 
-//		SortingManager.selectionSort(movieList, SortDirection.ASC);
-		SortingManager.bubbleSort(movieList, SortDirection.ASC);
-		
+		// selection sorting
+		SortingManager.selectionSort(movieList, SortDirection.ASC);
 		PrintUtil.printMovieYear(movieList);
-		
-//		SortingManager.selectionSort(movieList, SortDirection.DESC);
+
+		SortingManager.selectionSort(movieList, SortDirection.DESC);
+		PrintUtil.printMovieYear(movieList);
+
+		// bubble sorting
+		SortingManager.bubbleSort(movieList, SortDirection.ASC);
+		PrintUtil.printMovieYear(movieList);
+
 		SortingManager.bubbleSort(movieList, SortDirection.DESC);
-		
 		PrintUtil.printMovieYear(movieList);
 	}
 

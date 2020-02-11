@@ -64,7 +64,7 @@ public class CSVReader {
 
 		movie.setDuration(new Double(fields[3]));
 		movie.setGross(new Double(fields[8]));
-		movie.setTitle(fields[11].replaceAll("Â", "").replaceAll("Â ", ""));
+		movie.setTitle(fields[11]);
 		movie.setVotedUser(Integer.parseInt(fields[12]));
 		movie.setCastTotalFacebookLike(Integer.parseInt(fields[13]));
 

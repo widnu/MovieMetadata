@@ -110,29 +110,25 @@ public class SearchController implements Initializable {
 		listProperty.set(FXCollections.observableArrayList(titleList));
 		listViewMovies.itemsProperty().bind(listProperty);
 
+		// shows movies' statistics for all movies
+		StatisticService statService = new StatisticService();
+		try {
+			displayStatisticFields(statService, movieList);
+		} catch (Exception e1) {
+			logger.error(e1.getMessage(), e1);
+		}
+
 		// on change event to filter the movie list
 		mSearchMovieName.textProperty().addListener((observable, oldValue, newValue) -> {
 
-			// shows movies' statistics
+			// shows movies' statistics for the filtered movies
 			List<Movie> filteredMovieList = movieList.stream()
 					.filter(x -> (x.getTitle().toLowerCase().startsWith(newValue))).collect(Collectors.toList());
 
 			if (!filteredMovieList.isEmpty()) {
-				StatisticService statService = new StatisticService();
+
 				try {
-					mCount.setText(String.valueOf(filteredMovieList.size()));
-					mModeYear.setText(String.valueOf(statService.findModeYear(filteredMovieList)));
-
-					mMaxBudget.setText(formatter.format(statService.findMaxBudget(filteredMovieList)));
-					mMaxGross.setText(formatter.format(statService.findMaxGross(filteredMovieList)));
-					mMinBudget.setText(formatter.format(statService.findMinBudget(filteredMovieList)));
-					mMinGross.setText(formatter.format(statService.findMinGross(filteredMovieList)));
-
-					mMeanBudget.setText(formatter.format(statService.findMeanBudget(filteredMovieList)));
-					mMeanGross.setText(formatter.format(statService.findMeanGross(filteredMovieList)));
-					mMedianBudget.setText(formatter.format(statService.findMedianBudget(filteredMovieList)));
-					mMedianGross.setText(formatter.format(statService.findMedianGross(filteredMovieList)));
-
+					displayStatisticFields(statService, filteredMovieList);
 				} catch (Exception e) {
 					logger.error(e.getMessage(), e);
 				}
@@ -144,6 +140,21 @@ public class SearchController implements Initializable {
 
 			listProperty.set(FXCollections.observableArrayList(filteredTitleList));
 		});
+	}
+
+	private void displayStatisticFields(StatisticService service, List<Movie> movieList) throws Exception {
+		mCount.setText(String.valueOf(movieList.size()));
+		mModeYear.setText(String.valueOf(service.findModeYear(movieList)));
+
+		mMaxBudget.setText(formatter.format(service.findMaxBudget(movieList)));
+		mMaxGross.setText(formatter.format(service.findMaxGross(movieList)));
+		mMinBudget.setText(formatter.format(service.findMinBudget(movieList)));
+		mMinGross.setText(formatter.format(service.findMinGross(movieList)));
+
+		mMeanBudget.setText(formatter.format(service.findMeanBudget(movieList)));
+		mMeanGross.setText(formatter.format(service.findMeanGross(movieList)));
+		mMedianBudget.setText(formatter.format(service.findMedianBudget(movieList)));
+		mMedianGross.setText(formatter.format(service.findMedianGross(movieList)));
 	}
 
 	@FXML
