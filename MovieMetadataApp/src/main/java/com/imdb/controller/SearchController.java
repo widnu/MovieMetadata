@@ -12,18 +12,23 @@ import org.slf4j.LoggerFactory;
 
 import com.imdb.model.Movie;
 import com.imdb.service.SearchService;
+import com.imdb.service.StatisticService;
 import com.imdb.util.CSVReader;
 import com.imdb.util.Constants;
 import com.imdb.util.PrintUtil;
 
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 public class SearchController implements Initializable {
@@ -32,6 +37,9 @@ public class SearchController implements Initializable {
 
 	@FXML
 	private ListView listViewMovies;
+
+	@FXML
+	private TextField mSearchMovieName;
 
 	@FXML
 	private Label mTitle;
@@ -54,7 +62,7 @@ public class SearchController implements Initializable {
 	@FXML
 	private Label mCountry;
 	@FXML
-	private Label mFacebookLink;
+	private Hyperlink mFacebookLink;
 	@FXML
 	private Label mImdbScore;
 	@FXML
@@ -62,24 +70,80 @@ public class SearchController implements Initializable {
 	@FXML
 	private Label mActors;
 
+	@FXML
+	private Label mCount;
+	@FXML
+	private Label mModeYear;
+	@FXML
+	private Label mMaxBudget;
+	@FXML
+	private Label mMinBudget;
+	@FXML
+	private Label mMaxGross;
+	@FXML
+	private Label mMinGross;
+
+	@FXML
+	private Label mMedianBudget;
+	@FXML
+	private Label mMeanBudget;
+
+	@FXML
+	private Label mMedianGross;
+	@FXML
+	private Label mMeanGross;
+
+	private NumberFormat formatter;
+
 	private static List<Movie> movieList = null;
 
 	protected ListProperty<String> listProperty = new SimpleListProperty<>();
 
-	public SearchController() {
-
-	}
-
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		formatter = NumberFormat.getCurrencyInstance();
+
 		readMovieFile();
 
+		// initial the movie listview
 		List<String> titleList = movieList.stream().map(x -> x.getTitle()).collect(Collectors.toList());
-
 		listProperty.set(FXCollections.observableArrayList(titleList));
-
 		listViewMovies.itemsProperty().bind(listProperty);
 
+		// on change event to filter the movie list
+		mSearchMovieName.textProperty().addListener((observable, oldValue, newValue) -> {
+
+			// shows movies' statistics
+			List<Movie> filteredMovieList = movieList.stream()
+					.filter(x -> (x.getTitle().toLowerCase().startsWith(newValue))).collect(Collectors.toList());
+
+			if (!filteredMovieList.isEmpty()) {
+				StatisticService statService = new StatisticService();
+				try {
+					mCount.setText(String.valueOf(filteredMovieList.size()));
+					mModeYear.setText(String.valueOf(statService.findModeYear(filteredMovieList)));
+
+					mMaxBudget.setText(formatter.format(statService.findMaxBudget(filteredMovieList)));
+					mMaxGross.setText(formatter.format(statService.findMaxGross(filteredMovieList)));
+					mMinBudget.setText(formatter.format(statService.findMinBudget(filteredMovieList)));
+					mMinGross.setText(formatter.format(statService.findMinGross(filteredMovieList)));
+
+					mMeanBudget.setText(formatter.format(statService.findMeanBudget(filteredMovieList)));
+					mMeanGross.setText(formatter.format(statService.findMeanGross(filteredMovieList)));
+					mMedianBudget.setText(formatter.format(statService.findMedianBudget(filteredMovieList)));
+					mMedianGross.setText(formatter.format(statService.findMedianGross(filteredMovieList)));
+
+				} catch (Exception e) {
+					logger.error(e.getMessage(), e);
+				}
+			}
+
+			// display only the filtered movies in the list view
+			List<String> filteredTitleList = filteredMovieList.stream().map(x -> x.getTitle())
+					.collect(Collectors.toList());
+
+			listProperty.set(FXCollections.observableArrayList(filteredTitleList));
+		});
 	}
 
 	@FXML
@@ -106,14 +170,14 @@ public class SearchController implements Initializable {
 		mYear.setText(String.valueOf(movie.getYear()));
 		mCountry.setText(movie.getCountry());
 		mFacebookLink.setText(movie.getImdbLink());
-		
-		NumberFormat formatter = NumberFormat.getCurrencyInstance();
+		mImdbScore.setText(String.valueOf(movie.getImdbScore().doubleValue()));
+
 		mBudget.setText(formatter.format(movie.getBudget().doubleValue()));
 		mGross.setText(formatter.format(movie.getGross().doubleValue()));
 
 		mGenres.setText(String.join(", ", movie.getGenres()));
 		mPlotKeywords.setText(String.join(", ", movie.getPlotKeywords()));
-		
+
 		List<String> actorNameList = movie.getCrewList().stream().map(x -> x.getFullname())
 				.collect(Collectors.toList());
 		mActors.setText(String.join(", ", actorNameList));

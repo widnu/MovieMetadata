@@ -18,7 +18,7 @@ public class App {
 
 	private static List<Movie> movieList = null;
 
-	public static void main(String[] args) {
+	public static void main_backup(String[] args) {
 		readMovieFile();
 
 //		System.out.println("before sorting: ");
