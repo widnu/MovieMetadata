@@ -41,6 +41,8 @@ mvn clean package
 
 java -jar target/MovieMetadataApp-1.0-SNAPSHOT.jar
 
+java -jar target/jfx/app/MovieMetadataApp-1.0-SNAPSHOT-jfx.jar
+
 # JavaFX Tutorials:
 https://o7planning.org/en/10623/javafx-tutorial-for-beginners
 
