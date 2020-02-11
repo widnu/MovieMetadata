@@ -1,3 +1,6 @@
+# To run the application
+java -jar target/jfx/app/MovieMetadataApp-1.0-SNAPSHOT-jfx.jar
+
 # Dataset:
 https://www.kaggle.com/carolzhangdc/imdb-5000-movie-dataset
 
