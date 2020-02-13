@@ -62,3 +62,7 @@ https://www.vojtechruzicka.com/javafx-fxml-scene-builder/
 https://github.com/javafx-maven-plugin/javafx-maven-plugin
 
 mvn jfx:native
+
+# Generate JavaDoc by Maven
+
+mvn javadoc:javadoc
