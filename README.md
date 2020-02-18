@@ -1,3 +1,6 @@
+# To run the application
+java -jar target/jfx/app/MovieMetadataApp-1.0-SNAPSHOT-jfx.jar
+
 # Dataset:
 https://www.kaggle.com/carolzhangdc/imdb-5000-movie-dataset
 
@@ -59,3 +62,7 @@ https://www.vojtechruzicka.com/javafx-fxml-scene-builder/
 https://github.com/javafx-maven-plugin/javafx-maven-plugin
 
 mvn jfx:native
+
+# Generate JavaDoc by Maven
+
+mvn javadoc:javadoc
