@@ -1,6 +1,6 @@
 package com.imdb.model;
 
-/** Movie object with fields.
+/** Crew object with fields.
  * 
 <ul>
     <li>This class has the many to 1 relation with Movie object.</li>

@@ -13,11 +13,11 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.ibm.comparator.MovieBudgetComparator;
-import com.ibm.comparator.MovieGrossComparator;
-import com.ibm.comparator.MovieImdbScoreComparator;
-import com.ibm.comparator.MovieTitleComparator;
-import com.ibm.comparator.MovieYearComparator;
+import com.imdb.comparator.MovieBudgetComparator;
+import com.imdb.comparator.MovieGrossComparator;
+import com.imdb.comparator.MovieImdbScoreComparator;
+import com.imdb.comparator.MovieTitleComparator;
+import com.imdb.comparator.MovieYearComparator;
 import com.imdb.model.Movie;
 
 public class ComparatorTest {

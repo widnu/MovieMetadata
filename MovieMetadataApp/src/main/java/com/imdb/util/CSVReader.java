@@ -6,6 +6,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.imdb.model.Crew;
 import com.imdb.model.Movie;
 
@@ -16,6 +19,8 @@ import com.imdb.model.Movie;
  *
  */
 public class CSVReader {
+
+	private static final Logger logger = LoggerFactory.getLogger(CSVReader.class);
 
 	/**
 	 * Read the csv file and map them to Movie object
@@ -48,7 +53,7 @@ public class CSVReader {
 			}
 
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.error(e.getMessage(), e);
 		}
 
 	}
@@ -84,7 +89,7 @@ public class CSVReader {
 
 		// director
 		movie.setDirector(new Crew(fields[1], Integer.valueOf(fields[4])));
-		
+
 		// actor 1 - 3
 		movie.addCrewList(new Crew(fields[10], Integer.valueOf(fields[7])));
 		movie.addCrewList(new Crew(fields[6], Integer.valueOf(fields[24])));

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import com.ibm.comparator.MovieYearComparator;
+import com.imdb.comparator.MovieYearComparator;
 import com.imdb.enums.SortDirection;
 import com.imdb.model.Movie;
 import com.imdb.util.CSVReader;

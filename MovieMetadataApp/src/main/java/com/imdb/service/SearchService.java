@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import com.ibm.comparator.MovieTitleComparator;
+import com.imdb.comparator.MovieTitleComparator;
 import com.imdb.model.Movie;
 
 /**

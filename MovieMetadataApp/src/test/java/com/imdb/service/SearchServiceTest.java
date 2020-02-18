@@ -10,7 +10,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.ibm.comparator.MovieTitleComparator;
+import com.imdb.comparator.MovieTitleComparator;
 import com.imdb.model.Movie;
 
 public class SearchServiceTest {

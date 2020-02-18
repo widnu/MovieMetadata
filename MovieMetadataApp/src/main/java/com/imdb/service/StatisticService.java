@@ -4,8 +4,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.ibm.comparator.MovieBudgetComparator;
-import com.ibm.comparator.MovieGrossComparator;
+import com.imdb.comparator.MovieBudgetComparator;
+import com.imdb.comparator.MovieGrossComparator;
 import com.imdb.model.Movie;
 
 /**
@@ -140,7 +140,7 @@ public class StatisticService {
 
 	/**
 	 * The mean is the usual average, so I'll add and then divide: <br>
-	 * (13 + 18 + 13 + 14 + 13 + 16 + 14 + 21 + 13) ÷ 9 = 15 <br>
+	 * (13 + 18 + 13 + 14 + 13 + 16 + 14 + 21 + 13) / 9 = 15 <br>
 	 * 
 	 * @param sumValue
 	 * @param size
@@ -155,8 +155,8 @@ public class StatisticService {
 	 * The median is the middle value, so first I'll have to rewrite the list in
 	 * numerical order: <br>
 	 * 13, 13, 13, 13, 14, 14, 16, 18, 21 <br>
-	 * There are nine numbers in the list, so the middle one will be the (9 + 1) ÷ 2
-	 * = 10 ÷ 2 = 5th number: <br>
+	 * There are nine numbers in the list, so the middle one will be the (9 + 1) / 2
+	 * = 10 / 2 = 5th number: <br>
 	 * 13, 13, 13, 13, 14, 14, 16, 18, 21 <br>
 	 * So the median is 14. <br>
 	 * 

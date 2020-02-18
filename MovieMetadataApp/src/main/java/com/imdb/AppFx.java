@@ -23,7 +23,7 @@ public class AppFx extends Application {
 		try {
 			// Read file fxml and draw interface.
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource(Constants.FX_MAIN_SCENE));
+//			loader.setLocation(getClass().getResource(Constants.FX_MAIN_SCENE));
 			URL xmlUrl = getClass().getResource(Constants.FX_MAIN_SCENE);
 			loader.setLocation(xmlUrl);
 			Parent root = loader.load();
