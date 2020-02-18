@@ -36,7 +36,11 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
@@ -46,6 +50,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 /**
  * To search and display movie's detail
@@ -125,6 +130,9 @@ public class SearchController implements Initializable {
 	@FXML
 	private Label mMeanGross;
 
+	@FXML
+	private Button btnSearchBackLanding;
+
 	private NumberFormat formatter;
 
 	private static List<Movie> movieList = null;
@@ -147,7 +155,6 @@ public class SearchController implements Initializable {
 
 			readMovieFile();
 			initializeComponent();
-
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
 		}
@@ -166,6 +173,21 @@ public class SearchController implements Initializable {
 		String movieTitle = (String) listViewMovies.getSelectionModel().getSelectedItem();
 		Movie movie = searchMovie(movieTitle);
 		displayMovieDetail(movie);
+	}
+
+	/**
+	 * Go back to landing scene
+	 * 
+	 * @param event
+	 * @throws Exception
+	 */
+	@FXML
+	protected void backLandingOnClick(MouseEvent event) throws Exception {
+		Stage stage = (Stage) btnSearchBackLanding.getScene().getWindow();
+		Parent root = FXMLLoader.load(getClass().getResource(Constants.FX_LANDING_SCENE));
+		Scene scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
 	}
 
 	/**

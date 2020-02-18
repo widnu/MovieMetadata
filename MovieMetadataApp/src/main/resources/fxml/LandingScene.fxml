@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane fx:id="goSearchMovie" prefHeight="680.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.imdb.controller.LandingController">
+   <children>
+      <HBox alignment="CENTER" layoutY="152.0" prefHeight="300.0" prefWidth="1024.0">
+         <children>
+            <Button fx:id="btnGoSearchMovie" mnemonicParsing="false" onMouseClicked="#goSearchMovieMouseClick" prefHeight="200.0" prefWidth="200.0" text="Search Movies">
+               <HBox.margin>
+                  <Insets right="100.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnGoDrawGraph" mnemonicParsing="false" onMouseClicked="#goDrawGraphMouseClick" prefHeight="200.0" prefWidth="200.0" text="Draw Graph">
+               <HBox.margin>
+                  <Insets left="100.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
