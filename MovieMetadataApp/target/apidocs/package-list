@@ -1,0 +1,7 @@
+com.imdb
+com.imdb.comparator
+com.imdb.controller
+com.imdb.enums
+com.imdb.model
+com.imdb.service
+com.imdb.util

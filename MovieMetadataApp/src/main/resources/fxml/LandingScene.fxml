@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -7,22 +8,35 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane fx:id="goSearchMovie" prefHeight="680.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.imdb.controller.LandingController">
    <children>
-      <HBox alignment="CENTER" layoutY="152.0" prefHeight="300.0" prefWidth="1024.0">
+      <VBox prefHeight="680.0" prefWidth="1024.0">
          <children>
-            <Button fx:id="btnGoSearchMovie" mnemonicParsing="false" onMouseClicked="#goSearchMovieMouseClick" prefHeight="200.0" prefWidth="200.0" text="Search Movies">
-               <HBox.margin>
-                  <Insets right="100.0" />
-               </HBox.margin>
-            </Button>
-            <Button fx:id="btnGoDrawGraph" mnemonicParsing="false" onMouseClicked="#goDrawGraphMouseClick" prefHeight="200.0" prefWidth="200.0" text="Draw Graph">
-               <HBox.margin>
-                  <Insets left="100.0" />
-               </HBox.margin>
-            </Button>
+            <ImageView fx:id="imgLanding" fitHeight="397.0" fitWidth="1024.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imdb_bg.png" />
+               </image>
+            </ImageView>
+            <TextFlow fx:id="tfLandingFlow" prefHeight="453.0" prefWidth="984.0" textAlignment="CENTER">
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+            </TextFlow>
+            <HBox alignment="CENTER" prefHeight="358.0" prefWidth="1024.0">
+               <children>
+                  <Button fx:id="btnGoSearchMovie" mnemonicParsing="false" onMouseClicked="#goSearchMovieMouseClick" prefHeight="50.0" prefWidth="140.0" text="Search Movies">
+                     <HBox.margin>
+                        <Insets right="100.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="btnGoDrawGraph" mnemonicParsing="false" onMouseClicked="#goDrawGraphMouseClick" prefHeight="50.0" prefWidth="140.0" text="Draw Graph">
+                     <HBox.margin>
+                        <Insets left="100.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
          </children>
-      </HBox>
+      </VBox>
    </children>
 </AnchorPane>

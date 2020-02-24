@@ -6,7 +6,6 @@ import java.util.ResourceBundle;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.imdb.model.Movie;
 import com.imdb.util.Constants;
 
 import javafx.fxml.FXML;
@@ -15,17 +14,31 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 
 /**
  * A landing page class to control the other scenes on the stage
+ * 
  * @author widnu
  *
  */
 public class LandingController implements Initializable {
 
 	private static final Logger logger = LoggerFactory.getLogger(LandingController.class);
+
+	@FXML
+	private Label lbLandingDesc;
+
+	@FXML
+	private TextFlow tfLandingFlow;
 
 	@FXML
 	private Button btnGoSearchMovie;
@@ -38,7 +51,24 @@ public class LandingController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// keep this blank
+		Text text_1 = new Text("IMDB Movie Dataset");
+
+		text_1.setFill(Color.GREEN);
+		text_1.setFont(Font.font("Verdana", 25));
+
+		Text text_2 = new Text(Constants.MOVIE_LANDING_DESC);
+		text_2.setFill(Color.BLUE);
+		text_2.setFont(Font.font("Helvetica", FontPosture.ITALIC, 20));
+
+		// add text to textflow
+		tfLandingFlow.getChildren().add(text_1);
+		tfLandingFlow.getChildren().add(text_2);
+
+		// set text Alignment
+		tfLandingFlow.setTextAlignment(TextAlignment.CENTER);
+
+		// set line spacing
+		tfLandingFlow.setLineSpacing(20.0f);
 	}
 
 	/**

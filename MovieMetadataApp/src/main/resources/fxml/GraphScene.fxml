@@ -29,17 +29,7 @@
                   </Button>
                </children>
             </HBox>
-            <BarChart fx:id="barchartMovie" animated="false" legendSide="TOP" legendVisible="false" prefHeight="640.0" prefWidth="1024.0" title="Movie's Budget &amp; Gross in 2016">
-              <xAxis>
-                <CategoryAxis animated="false" endMargin="1.0" side="BOTTOM" startMargin="1.0" tickLabelGap="2.0" tickLength="4.0" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis side="LEFT" />
-              </yAxis>
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </BarChart>
+            <PieChart fx:id="piechart" prefHeight="640.0" prefWidth="1024.0" title="Movie's Gross" />
          </children>
       </VBox>
    </children>
